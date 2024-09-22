@@ -36,25 +36,17 @@ ctx.canvas.height = ctx.canvas.clientHeight;
 ## Cercles
 
 Créez une classe *Circle* dans un dossier */class* dans vos sources. Ajoutez un constructeur pour vos cercles. Les cercles seront dans un plan (cartésien à deux dimensions). 
-Ils auront les propriétés suivantes: x, y, radius, speed, color, colorBorder. Ajoutez une méthode *draw* qui prendra en paramètre un contexte de *canvas* (un paramètre nommé *ctx* par exemple). 
+Ils auront les propriétés suivantes: x, y, radius, direction, speed, color. Ajoutez une méthode *draw* qui prendra en paramètre un contexte de *canvas* (un paramètre nommé *ctx* par exemple). 
 Utilisez la [méthode *arc* ](https://developer.mozilla.org/fr/docs/Web/API/CanvasRenderingContext2D/arc) pour le dessin des cercles. 
-Puis, ajoutez une méthode *move* pour faire une translation des cercles dans le plan selon sa vitesse, une direction (un angle en radian) et un intervalle de temps en milliseconde (la direction et l'intervalle de temps seront reçus en paramètre). 
+Puis, ajoutez une méthode *move* pour faire une translation des cercles dans le plan selon sa vitesse, sa direction (un angle en radian) et un intervalle de temps en milliseconde (l'intervalle de temps sera reçus en paramètre).
 
 
 ## Génération de cercles aléatoires
 
 Dans votre programme principal, créez un tableau pour le stockage des cercles. 
-Générez 300 cercles de positions pseudo-aléatoires (mais incluse dans la *viewport*), et de couleurs pseudo-aléatoires. 
+Générez ~300 cercles de positions pseudo-aléatoires (mais incluse dans la *viewport*), et de couleurs pseudo-aléatoires. 
 Pour que vos couleurs ne soient pas trop ternes, vous pouvez utiliser [*HSL*](https://developer.mozilla.org/fr/docs/Web/CSS/color_value/hsl). 
-Pour vos nombres pseudo-aléatoires, vous pouvez utiliser la méthode suivante (à mettre dans un module *Math* dans un dossier *lib* de votre projet par exemple):
 
-```js
-export function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-```
 Pour les rayons, essayez de trouver une astuce pour que votre code génère plus de petits cercles que de grands cercles. Pour les vitesses, indiquez 0.1 [px/ms] pour le moment. (Note: travailler en pixel n'est pas forcément un bon choix ici, mais cela simplifie la chose).
 
 Afin de tester tout cela, dessinez tous les cercles dans le *canvas* grâce à la méthode *draw* codée au point précédent.
@@ -85,8 +77,7 @@ Pour le deuxième point, il vous faut modifier votre code de génération aléat
 ##  Univers en tore plat  
 Vous l'avez certainement remarqué lors de votre test d'animation, au bout d'un certain temps plus aucun cercle n'est visible dans votre *canvas* puisque leur position dans le plan est en dehors de sa limite.
 Pour éviter ce problème et donner l'illusion d'une translation *infinie*, nous pourrions changer le plan en *repliant* les côtés du *canvas* sur lui même dans un tore plat (ou tore bidimensionnel, ou, si vous préférez une référence ludique, un niveau du jeu Pacman).
-Pour le faire, créez un nouveau fichier *InFlatTorus.js* dans un sous-dossier *Circle* de votre dossier *class*. Puis créez une classe héritant de *Circle* (avec le mot clé *extends*). 
-Surchargez le constructeur pour qu'il accepte deux paramètres de plus, la largeur et la hauteur du tore plat. Surchargez aussi la méthode *move* pour faire que si le cercle venait à sortir des limites (haut, bas, gauche, droite), 
+Pour le faire, créez un nouveau fichier *InFlatTorus.js* dans un sous-dossier *Circle* de votre dossier *class*. Puis créez une classe héritant de *Circle* (avec le mot clé *extends*). Surchargez la méthode *move* pour faire que si le cercle venait à sortir des limites (haut, bas, gauche, droite), 
 il reviendrait par l'autre bord associé (bas <-> haut, gauche <-> droite). 
 Modifiez votre programme principal pour créer des cercles dans un tore plat à la place des cercles dans un plan "infini" et observez à nouveau votre animation.
 
