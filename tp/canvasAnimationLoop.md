@@ -3,7 +3,7 @@
 ## Mise en place
 
   pour une première prise en main. 
-La POO ( [documentation JS](https://fr.javascript.info/classes) peut être un bon paradigme associé à l'animation. En effet, les entités affichées sont souvent de même type, ainsi le principe d’encapsulation est structurant.
+La POO ( [doc. JS](https://fr.javascript.info/classes) ) peut être un bon paradigme associé à l'animation. En effet, les entités affichées sont souvent de même type, ainsi le principe d’encapsulation est structurant.
 Il est bien sûr possible d'utiliser d'autres paradigmes de programmation tout aussi efficacement, mais dans cette première prise en main, nous allons rester en terrain connu.
 
 Essayons d'effectuer une première animation simple avec un effet de parallaxe qui serait généré par le mouvement d'une caméra *virtuelle* manipulée par l'utilisateur. 
