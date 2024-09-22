@@ -125,3 +125,7 @@ Si vous voulez donner l'impression de bouger la "caméra" plutôt que les cercle
  - 'D' appuyée: Ouest (**π**)
 
 **Remarque**: comme vous l'avez peut-être remarqué, nos radians croissent dans la sens horaire plutôt que de le sens antihoraire.  En effet,  l'axe des *Y* croit vers le bas dans notre *canvas* et non vers le haut comme on le voit couramment en mathématique. 
+
+### Mouvement sur mobile (touch)
+
+Pour gérer le **swipe** sur mobile et permettre de déplacer la caméra, vous pouvez utiliser les événements *touchstart*, *touchmove* et *touchend* pour capturer les interactions de l'utilisateur.  Lors du *touchstart*, enregistrez la position initiale du doigt, puis lors du *touchmove*, calculez la direction du déplacement en comparant la position actuelle avec la position initiale (utilisez Math.atan2 sur les différences des y et des x).lors du *touchend*, vous réinitialiserez la direction à *false*. Essayez d'encapsuler tout ceçi dans une classe comme pour la classe "Keyboard".
