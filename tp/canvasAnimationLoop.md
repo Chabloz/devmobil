@@ -22,6 +22,7 @@ canvas {
   display: block;
   width: 100dvw;
   height: 100dvh;
+  background: black;
 }
 ```
 
