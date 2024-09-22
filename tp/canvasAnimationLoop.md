@@ -17,8 +17,7 @@ Voici un exemple pour lui donner la taille de la fenêtre d'affichage (*viewport
 body { 
   margin: 0; 
 } 
-canvas { 
-  background: black;
+canvas {   
   display: block;
   width: 100dvw;
   height: 100dvh;
