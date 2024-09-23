@@ -55,7 +55,7 @@ Afin de tester tout cela, dessinez tous les cercles dans le *canvas* grâce à l
 La méthode [requestAnimationFrame](https://developer.mozilla.org/fr/docs/Web/API/Window/requestAnimationFrame) va nous permettre de faire notre boucle d'animation.
 Comme nous l'avons vu en cours, pour que la vitesse des mouvements soit indépendante du taux de rafraîchissement (*framerate*), il nous faut calculer la différence de temps (Δt) entre deux rafraîchissements (*frames*).
 Comme vous pouvez le lire dans la documentation, *requestAnimationFrame* nous donne déjà un *timestamp* en milliseconde. 
-Il nous suffit donc de faire la différence avec le *timestamp* de la *frame* précédente. Pour la toute première *frame* faites que cette différence soit nulle.
+Il nous suffit donc de faire la différence avec le *timestamp* de la *frame* précédente. 
 
 Pour tester votre boucle d'animation, faites les opérations suivantes à chaque *frame*:
 
