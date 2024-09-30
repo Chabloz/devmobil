@@ -20,7 +20,7 @@ Pour ce faire l'intégration de Verlet nous propose la formule suivante:
 ```js
 const velocityX = (currentX - lastX);
 lastX = currentX;
-currentX = currentX +  velocityX + accelX * dt * dt;
+currentX = currentX + velocityX + accelX * dt * dt;
 ```
 Où lastX est la position X précédente du cercle et accelX l'accélération sur l'axe X.
 Pour le moment mettez votre accélération à 0 et procéder de la meme manière pour les y.
