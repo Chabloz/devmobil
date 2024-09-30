@@ -18,7 +18,8 @@ Cela permettra ainsi d'avoir une position courant et la position précédente n�
 Surcharger la méthode *move* de la classe parente pour calculer les (x,y) après un Δt. 
 Pour ce faire l'intégration de Verlet nous propose la formule suivante:
 ```js
-x = x + (x - lastX) + accelX * dt * dt
+curentX = currentX + (currentX - lastX) + accelX * dt * dt
+lastX = currentX;
 ```
 Où lastX est la position X précédente du cercle et accelX l'accélération sur l'axe X.
 Pour le moment mettez votre accélération à 0 et procéder de la meme manière pour les y.
