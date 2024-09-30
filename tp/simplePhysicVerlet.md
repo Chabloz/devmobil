@@ -5,7 +5,7 @@
 Un des "hello world" de l'animation est celui de la balle qui rebondit sur les bords de l'écran. 
 Nous allons réaliser la chose en ajoutant une simulation de la gravité.
 Nous allons utiliser un modèle simple permettant toutefois d'obtenir un bon résultat.
-Ce compromnis fait que c'est une solution souvent utilisé pour une simulation physique performante.
+Ce compromis fait que c'est une solution souvent utilisé pour une simulation physique performante.
 
 ## Class CircleVerlet
 Créez un nouveau fichier nommé *CircleVerlet.js* et codez une classe héritant de la classe *Circle*.
