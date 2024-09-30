@@ -19,7 +19,7 @@ Surcharger la méthode *move* de la classe parente pour calculer les (x,y) aprè
 Pour ce faire l'intégration de Verlet nous propose la formule suivante:
 ```js
 const velocityX = (currentX - lastX);
-lastx = currentX;
+lastX = currentX;
 currentX = currentX +  velocityX + accelX * dt * dt;
 ```
 Où lastX est la position X précédente du cercle et accelX l'accélération sur l'axe X.
