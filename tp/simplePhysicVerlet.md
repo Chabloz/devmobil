@@ -37,3 +37,26 @@ Rajoutez une méthode *boxConstraint* dans votre classe prenant une largeur et h
 Lorsque le cercle touche (ou déborde) des bords de la boite, remettez la à une position valide. 
 Toutefois, changer la dernière position du cercle comme à celle que le cercle aurait prise si il avait continué à travers le "mur". 
 Appelez cette nouvelle méthode dans votre boucle d'animation juste après le mouvement de votre cercle pour la tester.
+
+### Gestion des interactions
+Mettez en place une interaction simple. Lors d'un click de souris, récupérez sa position.
+Recherchez alors dans la collection de cercles le premier cerle en colision avec ce point.
+Pour ce faire vous pouvez premièrement calculer la distance entre la position de la souris et le centre du cercle:
+
+```js
+distanceTo({x , y}) {
+  const dx = this.x - x;
+  const dy = this.y - y;
+  return Math.sqrt(dx*dx + dy*dy); // Pythagore
+}
+```
+
+Puis, vérifiez si cette distance est inférieure au rayon (dans ce cas le point est dans le cercle):
+
+```js
+isInside({x, y}) {
+  return this.distanceTo({x, y}) < this.r;
+}
+```
+
+Enfin, appliquez un force sur le cercle en question. 
