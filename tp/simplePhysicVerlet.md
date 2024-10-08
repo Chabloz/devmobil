@@ -83,7 +83,7 @@ Voici le code JS pour calculer le déplacement à appliquer aux deux cercles:
 Soustrayez simplement *dx* et *dy* au cercle courant (this) et additionez le à l'autre.
 
 ### Ajout d'autres contraintes
-Comme on la vue avec les rebonds sur les bords du *canvas*, l'intégration de Verlet permet de facilement ajouter des contraintes.
+Comme on l'a vu avec les rebonds sur les bords du *canvas*, l'intégration de Verlet permet de facilement ajouter des contraintes.
 Nous pouvons essayez de rajouter une contrainte entre deux cercles pour les lier entre eux.
 Appelons cela un *link*. Commencez par créez une classe *LinkVerlet* avec un contructeur prenant deux cercles et une distance (notre contrainte) en paramètre.
 Ajoutez une méthode *update* a cette classe. De la meme manière que la méthode de collision, elle calculera la distance entre les deux cercles.
