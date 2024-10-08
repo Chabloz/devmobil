@@ -85,14 +85,14 @@ Soustrayez simplement *dx* et *dy* au cercle courant (this) et additionez le à 
 ### Ajout d'autres contraintes
 Comme on l'a vu avec les rebonds sur les bords du *canvas*, l'intégration de Verlet permet de facilement ajouter des contraintes.
 Nous pouvons essayez de rajouter une contrainte entre deux cercles pour les lier entre eux.
-Appelons cela un *link*. Commencez par créez une classe *LinkVerlet* avec un contructeur prenant deux cercles et une distance (notre contrainte) en paramètre.
-Ajoutez une méthode *update* a cette classe. De la meme manière que la méthode de collision, elle calculera la distance entre les deux cercles.
+Appelons cela un *link*. Commencez par créer une classe *LinkVerlet* avec un contructeur prenant deux cercles et une distance (notre contrainte) en paramètre.
+Ajoutez une méthode *update* à cette classe. De la même manière que la méthode de collision, elle calculera la distance entre les deux cercles.
 L'*overlap* cette fois sera la différence entre la distance de contrainte et la distance actuelle.
 Déplacez les cercles en conséquence. Dans votre programme principal, créez un lien entre deux cercles et mettez à jour ce lien à chaque *tick* de la simulation.
-Pour allez plus loin, nous allons faire que certain cercle ne bouge pas. Pour ce faire, ajoutez une propriété *sticky* à la classe *CircleVerlet*.
-Si cette propriété est à *true*, ne bougez pas le cercle lors de la mise à jour de la position.
-De même, si un cercle est *sticky*, ne le déplacez pas lors de la mise à jour du lien.
-Pour tester, créez un cercle *sticky* et un lien entre deux cercles.
+Pour allez plus loin, nous allons faire que certains cercles ne bougent pas. Pour ce faire, ajoutez une propriété *sticky* à la classe *CircleVerlet*.
+Si cette propriété est à *true*, ne bougez pas le cercle lors de la mise à jour de la position, de même lors des collisions.
+Si un cercle est *sticky*, ne le déplacez pas non plus lors de la mise à jour du lien.
+Pour tester, créez un cercle *sticky* et un lien entre deux cercles (vous devriez obtenir un pendule).
 
 Nous pouvons maintenant lier les cercles entre eux pour créer des formes plus complexes.
 Par exemple une corde (ou plutôt une chaine de cercles). Pour ce faire créer une classe *Rope*.
