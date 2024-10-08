@@ -37,7 +37,7 @@ Enfin, appliquez la gravité à chaque "tick" de votre simulation.
 ### Méthode *boxConstraint*
 Rajoutez une méthode *boxConstraint* dans votre classe prenant une largeur et hauteur.
 Lorsque le cercle touche (ou déborde) des bords de la boite, remettez la à une position valide.
-Toutefois, changer la dernière position du cercle comme si le cercle avait continué à travers le "mur".
+Toutefois, changez la dernière position du cercle comme si le cercle avait continué à travers le "mur" (cela aura donc pour effet d'inverser la direction).
 Appelez cette nouvelle méthode dans votre boucle d'animation juste après le mouvement de votre cercle pour la tester.
 
 ### Gestion des interactions
