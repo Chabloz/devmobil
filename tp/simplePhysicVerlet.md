@@ -10,7 +10,7 @@ Ce compromis fait que c'est une solution souvent utilisé pour une simulation ph
 ## Class CircleVerlet
 Créez un nouveau fichier nommé *CircleVerlet.js* et codez une classe héritant de la classe *Circle*.
 Dans cette nouvelle classe, nous allons étendre la classe de base. Ajouter un paramètre *dt* au constructeur.
-Appelez le constructeur de la classe parente, puis stocker x et y comme prosition précédente du cercle.
+Appelez le constructeur de la classe parente, puis stocker x et y comme position précédente du cercle.
 Enfin, inversez la direction et appelez la méthode *move* de la classe parente avec ce *dt* mais négatif.
 Cela permettra ainsi d'avoir une position courant et la position précédente nécessaire a l'intégration de Verlet.
 
