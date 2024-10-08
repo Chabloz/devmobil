@@ -12,7 +12,7 @@ Créez un nouveau fichier nommé *CircleVerlet.js* et codez une classe héritant
 Dans cette nouvelle classe, nous allons étendre la classe de base. Ajouter un paramètre *dt* au constructeur.
 Appelez le constructeur de la classe parente, puis stocker x et y comme position précédente du cercle.
 Enfin, inversez la direction et appelez la méthode *move* de la classe parente avec ce *dt* mais négatif.
-Cela permettra ainsi d'avoir une position courant et la position précédente nécessaire a l'intégration de Verlet.
+Cela permettra ainsi d'avoir une position courant et la position précédente nécessaire à l'intégration de Verlet.
 
 ### Méthode *move*
 Surcharger la méthode *move* de la classe parente pour calculer les (x,y) après un Δt.
