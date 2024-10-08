@@ -62,7 +62,7 @@ isInside({x, y}) {
 }
 ```
 
-Enfin, appliquez un force sur le cercle en question.
+Enfin, appliquez une force sur le cercle en question.
 
 ### Gestion des collisions
 Pour détecter les collisions entre les cercles, l'on peut comparer la distance entre les centres des deux cercles avec la somme des rayons.
