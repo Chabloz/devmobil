@@ -31,7 +31,7 @@ Puis créez une *boucle* d'animation en utilisant [MainLoop.js](https://github.c
 
 ### Appliquer la gravité
 Rajoutez une méthode *applyForceY* dans votre classe. Cette méthode recevra une force (la "gravité" dans notre cas) et modifiera la propriété *accelY* en conséquence.
-Modifierz votre méthode move pour remettre à 0 la valeur de accelY après le mouvement.
+Modifiez votre méthode move pour remettre à 0 la valeur de accelY après le mouvement.
 Enfin, appliquez la gravité à chaque "tick" de votre simulation.
 
 ### Méthode *boxConstraint*
