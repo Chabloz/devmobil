@@ -85,7 +85,7 @@ La méthode onConnection prendra en paramètre un objet `client`.  Elle s'occupe
   client.on('close', () => this.onClose(client));
   client.on('pong', () => this.onPong(client));
 ```
-La méthode `createClientMetadata` permettra de stocker des informations sur les clients connectés. Pour le moment elle ne fera qu'attribuer un identifiant unique à chaque client et un status isAlive à true pour la gestion des pings/pongs. Vous pourrier utiliser une structure de données Map pour stocker ces informations pour chaque client.
+La méthode `createClientMetadata` permettra de stocker des informations sur les clients connectés. Pour le moment elle ne fera qu'attribuer un identifiant unique à chaque client et un status isAlive à true pour la gestion des pings/pongs. Vous pourriez utiliser une structure de données Map pour stocker ces informations pour chaque client.
 Il vous reste à implémenter les méthodes `onMessage`, `onClose` et `onPong` pour gérer les messages, les fermetures de connexion et les pings/pongs des clients. Pour `onMessage`, tous les messages reçus seront *broadcastés* à tous les clients sauf l'expéditeur.
 Pour simplifier la gestion des envoit des messages, vous pouvez ajouter les méthodes `send`, `broadcast` et `broadcastToOthers` à la classe `WSServer`. Vérifiez bien que le client à un `readyState` égal à `WebSocket.OPEN` avant de lui envoyer un message. Il pourrait être pratique que ces méthodes convertissent automatiquement les données en JSON avant de les envoyer.
 
