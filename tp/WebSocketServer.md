@@ -4,7 +4,7 @@
 Prendre en main la technologie WebSocket.
 
 ### Mise en place
-Commencez par installer `ws` dans votre projet grâce à `npm` avec la commande suivante :
+Commencez par installer (`ws`)[https://github.com/websockets/ws/tree/master] dans votre projet grâce à `npm` avec la commande suivante :
 ```
 npm install ws
 ```
