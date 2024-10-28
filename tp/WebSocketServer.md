@@ -148,6 +148,8 @@ wsServer.addRpc('hello', (data, client, wsServer) => {
 });
 ```
 
+Enfin, vous pouvez démarrer le serveur avec la méthode **`start`**.
+
 ### Documentation succinte de la partie cliente
 
 La classe `WSClient` permet de gérer la connexion WebSocket côté client et de simplifier l’utilisation des fonctionnalités de PubSub et de RPC.
