@@ -89,9 +89,64 @@ La méthode `createClientMetadata` permettra de stocker des informations sur les
 Il vous reste à implémenter les méthodes `onMessage`, `onClose` et `onPong` pour gérer les messages, les fermetures de connexion et les pings/pongs des clients. Pour `onMessage`, tous les messages reçus seront *broadcastés* à tous les clients sauf l'expéditeur.
 Pour simplifier la gestion des envois des messages, vous pouvez ajouter les méthodes `send`, `broadcast` et `broadcastToOthers` à la classe `WSServer`. Vérifiez bien que le client à un `readyState` égal à `WebSocket.OPEN` avant de lui envoyer un message. Il pourrait être pratique que ces méthodes convertissent automatiquement les données en JSON avant de les envoyer.
 
+## WebSocket: PubSub et RPC
+Une fois cette première prise en main faites, je vous conseille d'utiliser un code plus architecturé. Ce que vous avez fait jusqu'à présent devrait vous aidez à comprendre facilement la proposition suivante.
+
+Pour architecturer votre système de communication WebSocket, l’usage du Design Pattern PubSub (Publisher-Subscriber) et de RPC (Remote Procedure Call) est efficace et couramment implémenté. Le PubSub permet aux clients de publier des messages dans des canaux spécifiques et de s'y abonner pour recevoir des messages. Le RPC offre la possibilité d’appeler facilement des fonctions du WebSocket serveur.
+
+Vous trouverez le code d'un serveur et d'un client ici : [code source PubSub et RPC](https://github.com/Chabloz/devmobil51/tree/main/src/websocket). Reprenez l'entierté du dossier et ajoutez le dans votre dossier *src*. 
+
+### Documentation succinte pour la partie serveur
+
+La méthode `addChannel` permet d'ajouter un canal de communication au serveur avec des options personnalisables :
+
+- **`chan`** : nom du canal.
+- **`options`** : 
+  - **`usersCanPub`** *(boolean, défaut : `true`)* : spécifie si les utilisateurs peuvent publier sur ce canal.
+  - **`usersCanSub`** *(boolean, défaut : `true`)* : spécifie si les utilisateurs peuvent s’abonner.
+  - **`hookPub`** *(fonction)* : callback exécuté avant la publication d’un message. Doit retourner le message après modifications éventuelles. Appelée avec le message, les métadonnées du client et le serveur.
+  - **`hookSub`** *(fonction)* : callback exécuté avant qu'un client s'abonne, doit renvoyer `true` pour autoriser ou `false` pour refuser l'abonnement.
+  - **`hookUnsub`** *(fonction)* : callback exécuté avant qu'un client se désabonne, sans impact sur l’action de désabonnement.
+
+Exemple :
+```js
+wsServer.addChannel('chat', {
+  usersCanPub: true,
+  usersCanSub: true,
+  hookPub: (msg, client, wsServer) => {
+    return {...msg, from: client.username, time: Date.now()};
+  },
+});
+```
+
+La méthode `addRpc` permet de définir une fonction RPC accessible par les clients :
+
+- **`name`** : nom de la RPC.
+- **`callback`** : fonction exécutée lors de l’appel, qui doit renvoyer une réponse. Reçoit les données envoyées par le client, les métadonnées du client, et le serveur. Elle peut lever une erreur `WSServerError` pour indiquer une erreur au client.
+
+Exemple :
+```js
+wsServer.addRpc('hello', (data, client, wsServer) => {
+  if (!data?.name) throw new WSServerError('Name is required');
+  return `Hello from WS server ${data.name}`;
+});
+```
+Ici Ul, ordinateur de bord.
+
+### Documentation succinte de la partie cliente
+
+La classe `WSClient` permet de gérer la connexion WebSocket côté client et de simplifier l’utilisation des fonctionnalités de PubSub et de RPC.
+
+- **`connect()`** : Établit la connexion au serveur WebSocket. Renvoie une promesse qui se résout une fois la connexion établie. En cas d'échec, la promesse est rejetée avec une erreur. Il est possible de passer un token d'authentification à la méthode. Il sera reçu dans la fonction *authCallback* du server pour la gestion de l'autorisation.
+
+- **`sub(channel, callback)`** : Permet de s'abonner à un canal de messages (par ex. `"chat"`). Le **`callback`** est une fonction qui sera exécutée pour chaque message reçu sur ce canal. Plusieurs abonnements peuvent être créés pour un même canal. Renvoie une promesse qui se résout lorsque la subscription est réussie, ou est rejetée en cas d’erreur.
+
+- **`pub(channel, message)`** : Publie un message dans un canal. Renvoie une promesse qui se résout lorsque le message est envoyé, ou est rejetée en cas d’erreur.
+
+- **`rpc(method, params)`** : Appelle une méthode RPC sur le serveur. **`method`** est le nom de la méthode à appeler (par ex. `"hello"`), et **`params`** contient les paramètres envoyés avec l'appel. Renvoie une promesse qui se résout avec la réponse du serveur ou est rejetée en cas d'erreur.
 
 ## WebSocket Client
-Actuellement le serveur WebSocket est prêt à recevoir des connexions et à faire des *broadcasts* de messages. Pour tester le serveur, mettez en place un chat simple avec un client WebSocket.
+Pour tester le serveur, mettez en place un chat simple avec un client WebSocket.
 Puisque les données sont réactives, vous pouvez utiliser un framework comme Vue.js pour gérer l'affichage des messages. Vous pouvez vous baser sur ce qui a été fait l'année dernière pour le chat en ligne ( [ici](https://chabloz.eu/webmobui/exercices)). Pour le moment ne gérer pas les noms d'utilisateurs et les gens connectés (laisser n'importe qui envoyer des messages). Vous pouvez vous aider de la documentation de `WebSocket` de MDN pour mettre en place le client ([MDN WebSocket Client](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)). Essayez d'architecturer au mieux votre application. N'hesitez pas à venir me voir si vous avez des questions sur votre architecture.
 
 Si vous partez sur les mêmes technlogies que l'année passée, voici une petite doc pour leur installation:
