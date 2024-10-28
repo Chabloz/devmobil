@@ -98,7 +98,7 @@ Vous trouverez le code d'un serveur et d'un client ici : [code source PubSub et 
 
 ### Documentation succinte pour la partie serveur
 
-La classe WSServerPubSub permet de créer un serveur WebSocket. Elle accepte une fonction *authCallback* pour authentifier et associer des métadonnées aux clients: *authCallback(token, request, wsServer)*. Cette fonction est ppelée pour chaque connexion entrante. Si cette fonction retroune *false*, la connection est refusée. Sinon, elle permet d'ajouter des métadonnées personnalisées en retournant un objet les contenants. Exemple:
+La classe WSServerPubSub permet de créer un serveur WebSocket. Elle accepte une fonction *authCallback* pour authentifier et associer des métadonnées aux clients: *authCallback(token, request, wsServer)*. Cette fonction est appelée pour chaque connexion entrante. Si cette fonction retourne *false*, la connexion est refusée. Sinon, elle permet d'ajouter des métadonnées personnalisées en retournant un objet les contenants. Exemple:
 
 ```js
 function authCallback(token, request, wsServer) {
@@ -147,7 +147,6 @@ wsServer.addRpc('hello', (data, client, wsServer) => {
   return `Hello from WS server ${data.name}`;
 });
 ```
-Ici Ul, ordinateur de bord.
 
 ### Documentation succinte de la partie cliente
 
