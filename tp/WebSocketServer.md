@@ -130,7 +130,7 @@ wsServer.addChannel('chat', {
   usersCanPub: true,
   usersCanSub: true,
   hookPub: (msg, client, wsServer) => {
-    return {...msg, from: client.username, time: Date.now()};
+    return {msg, from: client.username, time: Date.now()};
   },
 });
 ```
