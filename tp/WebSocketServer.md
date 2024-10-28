@@ -158,7 +158,7 @@ La classe `WSClient` permet de gérer la connexion WebSocket côté client et de
 
 - **`pub(channel, message)`** : Publie un message dans un canal. Renvoie une promesse qui se résout lorsque le message est envoyé, ou est rejetée en cas d’erreur.
 
-- **`rpc(method, params)`** : Appelle une méthode RPC sur le serveur. **`method`** est le nom de la méthode à appeler (par ex. `"hello"`), et **`params`** contient les paramètres envoyés avec l'appel. Renvoie une promesse qui se résout avec la réponse du serveur ou est rejetée en cas d'erreur.
+- **`rpc(method, params)`** : Appelle une méthode RPC sur le serveur. **`method`** est le nom de la méthode à appeler, et **`params`** contient les paramètres envoyés avec l'appel. Renvoie une promesse qui se résout avec la réponse du serveur ou est rejetée en cas d'erreur.
 
 ## WebSocket Client
 Pour tester le serveur, mettez en place un chat simple avec un client WebSocket.
