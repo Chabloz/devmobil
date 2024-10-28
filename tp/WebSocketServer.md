@@ -164,7 +164,7 @@ La classe `WSClient` permet de gérer la connexion WebSocket côté client et de
 
 ## WebSocket Client
 Pour tester le serveur, mettez en place un chat simple avec un client WebSocket.
-Puisque les données sont réactives, vous pouvez utiliser un framework comme Vue.js pour gérer l'affichage des messages. Vous pouvez vous baser sur ce qui a été fait l'année dernière pour le chat en ligne ( [ici](https://chabloz.eu/webmobui/exercices)). Pour le moment ne gérer pas les noms d'utilisateurs et les gens connectés (laisser n'importe qui envoyer des messages). Vous pouvez vous aider de la documentation de `WebSocket` de MDN pour mettre en place le client ([MDN WebSocket Client](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)). Essayez d'architecturer au mieux votre application. N'hesitez pas à venir me voir si vous avez des questions sur votre architecture.
+Puisque les données sont réactives, vous pouvez utiliser un framework comme Vue.js pour gérer l'affichage des messages. Pour le moment ne gérer pas les noms d'utilisateurs et les gens connectés (laisser n'importe qui envoyer des messages). Vous pouvez vous aider de la documentation de `WebSocket` de MDN pour mettre en place le client ([MDN WebSocket Client](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications)). Essayez d'architecturer au mieux votre application. N'hesitez pas à venir me voir si vous avez des questions sur votre architecture.
 
 Si vous partez sur les mêmes technlogies que l'année passée, voici une petite doc pour leur installation:
 
