@@ -178,8 +178,7 @@ npm install @vitejs/plugin-vue
 npm install --save quasar @quasar/extras
 npm install --save-dev @quasar/vite-plugin
 ```
-modifier le fichier vite.config.js avec:
-*Vue seulement:*
+Modifiez le fichier vite.config.js avec *Vue seulement:*
 ```javascript
 import vue from '@vitejs/plugin-vue';
 
@@ -188,7 +187,6 @@ plugins: [vue()],
 ```
 
 *Vue + Quasar:*
-
 ```javascript
 import vue from '@vitejs/plugin-vue';
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
@@ -199,5 +197,4 @@ plugins: [
   quasar(),
 ],
 ```
-
 
