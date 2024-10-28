@@ -98,6 +98,22 @@ Vous trouverez le code d'un serveur et d'un client ici : [code source PubSub et 
 
 ### Documentation succinte pour la partie serveur
 
+La classe WSServerPubSub permet de créer un serveur WebSocket. Elle accepte une fonction *authCallback* pour authentifier et associer des métadonnées aux clients: *authCallback(token, request, wsServer)*. Cette fonction est ppelée pour chaque connexion entrante. Si cette fonction retroune *false*, la connection est refusée. Sinon, elle permet d'ajouter des métadonnées personnalisées en retournant un objet les contenants. Exemple:
+
+```js
+function authCallback(token, request, wsServer) {
+  // Use the token here for the authentification of the client
+  // You must return false if access is denied.
+  return {username: 'Anonymous'};
+}
+
+const wsServer = new WSServerPubSub({
+  port: 8887,
+  origins: 'http://localhost:5173',
+  authCallback,
+});
+```
+
 La méthode `addChannel` permet d'ajouter un canal de communication au serveur avec des options personnalisables :
 
 - **`chan`** : nom du canal.
