@@ -111,4 +111,4 @@ Si l'utilisateur n'a appuyé sur aucune de ces touches, ne bougez simplement pas
 Pour gérer le **swipe** sur mobile et permettre de déplacer la caméra, vous pouvez utiliser les événements *touchstart*, *touchmove* et *touchend* pour capturer les interactions de l'utilisateur.
 Lors du *touchstart*, enregistrez la position initiale, puis lors du *touchmove*, calculez la direction du déplacement en comparant la position actuelle avec la position initiale (utilisez `Math.atan2` sur les différences des y et des x).
 Lors du *touchend*, vous réinitialiserez la direction à *false*.
-Essayez d'encapsuler tout ceci dans une classe comme pour la
+Essayez d'encapsuler tout ceci dans une classe.
