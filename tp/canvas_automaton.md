@@ -21,9 +21,9 @@ Faites un test rapide en:
 
 -   Créant un automate dont la grille prend l’entièreté du `canvas`
     
--   Initialisez avec `randomize(0.1)` pour un bruit de test.
+-   Initialisant avec `randomize(0.1)` pour un bruit de test.
     
--   Appelez `draw(ctx)`.
+-   Dessinant l'automate via `draw(ctx)`.
     
 
 ## B/S (règles Birth/Survival)
