@@ -1,4 +1,3 @@
-.
 # Canvas, animation, automates cellulaires 2D (jeu de la vie)
 
 ## Mise en place
