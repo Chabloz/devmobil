@@ -7,7 +7,7 @@ Réaliser un **chat** en utilisant **WebSockets**. Vous devez mettre en place le
 - Prendre en main les WebSockets via la mise en place d'un serveur    
 - S'initier au Publish Subscribe (PubSub) via la gestion de plusieurs canaux 
 - Gérer l'échange des messages entre plusieurs clients et mettre à jour l’interface en temps réel.    
-- S'initier au Remote Procedure Call (RPC) via l'implémentation d'un système de des commandes.    
+- S'initier au Remote Procedure Call (RPC) via l'implémentation d'un système de commandes.    
 
 ## Installation des dépendances
 
