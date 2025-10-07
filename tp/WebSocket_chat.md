@@ -32,7 +32,8 @@ L'authentification se fera via un **token** qui ne contiendra que le nom d’uti
 ### Les canaux    
 Le serveur fera la création de deux canaux : un canal `chat` pour les messages publics et un canal `users` pour envoyer la liste des utilisateurs connectés. Utilisez  la méthode [addChannel](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#addchannelname-options) avec les bonnes options. Utilisez un *hook* (option `hookPub`) pour interdire les messages trop longs et rajouter les données nécessaires au message de l'utilisateur (comme son *username*, et un *timestamp*).
 
-La liste des utilisateurs connectés sera publiée manuellement par le serveur à chaque changement via le canal `users` (lors des connexions ou déconnexions) en utilisant la méthode [pub](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#pubchanname-msg) par exemple.
+La liste des utilisateurs connectés sera publiée manuellement par le serveur à chaque changement via le canal `users` en utilisant la méthode [pub](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#pubchanname-msg). Pour observer tous les changements dans la liste des utilisateurs, vous pouvez utiliser les *hooks* [hookSubPost et hookUnsubPost](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#addchannelname-options) . Vous pouvez obtenir les metadata de touts les clients inscrit à un canal avec [getChannelClientsData](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#getchannelclientsdatachanname).
+
 
     
 ### Implémentation des commandes via RPC
