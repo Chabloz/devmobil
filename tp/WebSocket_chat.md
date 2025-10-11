@@ -38,9 +38,9 @@ La liste des utilisateurs connectés sera publiée manuellement par le serveur �
     
 ### Implémentation des commandes via RPC
 
-WsMini propose un mécanisme de **RPC** permettant d’exposer des fonctions que les clients peuvent appeler. On ajoutera un RPC nommé `command` pour traiter toutes les commandes des utilisateurs. La méthode serveur vérifiera que la commande est valide (ou lèvera une exception `WSServerError`). Réaliser au minimum les deux commandes suivantes: 
+WsMini propose un mécanisme de **RPC** permettant d’exposer des fonctions que les clients peuvent appeler. Vous devez réaliser au minimum les deux commandes suivantes: 
 
--   **`/em <text>`** : diffuse une commande `emote` à tous les clients via [broadcastCmd](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#broadcastcmdcmd-data). Chaque client pourra écouter cette commande et afficher le texte en italique par exemple.
+-   **`/em <text>`** : diffuse un message de type `emote` à tous les clients du chat (le texte sera en italique par exemple).
     
 -   **`/pm <username> <text>`** : envoie un message privé grâce à [sendCmd](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSServerPubSub.md#sendcmdclient-cmd-data) pour envoyer le message au bon destinataire.
 
@@ -61,9 +61,8 @@ L'utilisateur pourra envoyer des message sur le canal du chat. Utilisez la méth
 ### Envoi et gestion des commandes /
 
 Lors de la soumission du formulaire de chat, vous devez détecter si le message commence par un **/**.
-Si c'est le cas, il ne faut alors pas le publier dans le canal, mais appelez  `command` du serveur WS grâce à la méthode [rpc](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSClient.md#rpcname-data-timeout).
-
-Il faudra aussi correctement gérer les commandes **em** et **pm** que le serveur enverra. Vous pouvez le faire grâce a la méthode [onCmd](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSClient.md#oncmdcmd-callback).
+Si c'est le cas, il ne faut alors pas le publier dans le canal, mais executer la commande sur le serveur WS grâce à la méthode [rpc](https://github.com/Chabloz/WsMini/blob/main/docs/api/WSClient.md#rpcname-data-timeout).
+Il faudra donc aussi correctement gérer les retours des commandes (**em** et **pm**) que le serveur enverra.
 
 ### Déconnexion
 
