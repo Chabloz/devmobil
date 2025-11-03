@@ -80,7 +80,7 @@ Le mini‑chat présenté ici est volontairement simple. Plusieurs aspects indis
     
 -   **Gestion des caractères spéciaux et des accents** : les diacritiques peuvent poser problème (par exemple via des [générateur de *glitch*](https://zalgo.org/) . 
 
--   **Historique des messages** : les nouveaux arrivants ne reçoivent pas les messages déjà échangés. Une sauvegarde en base de données serait nécessaire (et serait aussi utile a la modération)    
+-   **Historique des messages** : les nouveaux arrivants ne reçoivent pas les messages déjà échangés. Une sauvegarde en base de données serait nécessaire (et serait aussi utile pour la modération)    
 
 Ces limites montrent que ce mini‑chat n’a pas vocation à être utilisé en production. Il s’agit d’un exercice pour découvrir les *WebSocket* et des concepts comme *PubSub* et *RPC*.
 
