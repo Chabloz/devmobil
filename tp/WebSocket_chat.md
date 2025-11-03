@@ -82,6 +82,6 @@ Le mini‑chat présenté ici est volontairement simple. Plusieurs aspects indis
 
 -   **Historique des messages** : les nouveaux arrivants ne reçoivent pas les messages déjà échangés. Une sauvegarde en base de données serait nécessaire (et serait aussi utile pour la modération).    
 
-Ces limites font que le chat actuel n’est pas encore prêt pour laproduction.
+Ces limites font que le chat actuel n’est pas encore prêt pour la production.
 
 
