@@ -78,7 +78,7 @@ Le mini‑chat présenté ici est volontairement simple. Plusieurs aspects indis
     
 -   **Limitation du débit** : un utilisateur pourrait saturer le serveur en envoyant trop de messages. L’implémentation d’un *rate‑limiting* est à envisager.
     
--   **Gestion des caractères spéciaux et des accents** : les diacritiques peuvent poser problème (par exemple via des [générateurs de *glitch*](https://zalgo.org/) . 
+-   **Gestion des caractères spéciaux et des accents** : les diacritiques peuvent poser problème (par exemple via des [générateurs de *glitch*](https://zalgo.org/)). 
 
 -   **Historique des messages** : les nouveaux arrivants ne reçoivent pas les messages déjà échangés. Une sauvegarde en base de données serait nécessaire (et serait aussi utile pour la modération).    
 
